@@ -1,0 +1,23 @@
+<h3> PARTICIPANTS </h3>
+
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+</div>
+<p-dataTable #dt [globalFilter]="gb" resizableColumns="true" [value]="participants" dataKey="$key" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+    <p-column field="firstName" header="First Name (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+  
+    <p-column field="lastName" header="Last Name"></p-column>
+    <p-column field="email" header="Email (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+    
+    <p-column field="institute" header="Institute (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+    
+    <p-column field="city" header="City (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+    
+    <p-column field="country" header="Country (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+    
+</p-dataTable>
+
+
+<ng2-adsense style="position: absolute; bottom: 0px;">
+</ng2-adsense>

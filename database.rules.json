@@ -1,0 +1,17 @@
+{
+  "rules": {
+    ".read": "auth == null || auth !=null",
+    ".write": "auth == null || auth !=null",
+    "categories": {
+      ".indexOn": [
+        "superCategoryKey"
+      ]
+    },
+    "businesses": {
+      ".indexOn": [
+        "id",
+        "businessCategoryKey"
+      ]
+    }
+  }
+}

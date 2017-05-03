@@ -1,0 +1,48 @@
+<!--<table id="additionalList" class="table table-hover table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th class="hidden">University</th>
+      <th class="hidden">City</th>
+      <th class="hidden">Country</th>
+      <th> Select </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let auth of authors | async">
+      <td>{{auth.firstName}}</td>
+      <td>{{auth.lastName}}</td>
+      <td>{{auth.email}}</td>
+      <td>{{auth.institute}}</td>
+      <td>{{auth.city}}</td>
+      <td>{{auth.country}}</td>
+      <td>
+        <input type="radio" name="optionsRadios" value="auth" (click)="getAuth(auth)"> </td>
+    </tr>
+  </tbody>
+</table>-->
+<div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+</div>
+<p-dataTable #dt [globalFilter]="gb" exportFilename="participants" resizableColumns="true" [value]="authors | async" [(selection)]="selAuth" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" dataKey="$key" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="float:left">Export to csv</button>
+        </div>
+    </p-header>
+    <p-column [style]="{'width':'38px'}" selectionMode="single"></p-column>
+    <p-column field="firstName" header="First Name (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+    
+    <p-column field="lastName" header="Last Name"></p-column>
+    <p-column field="email" header="Email (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+    
+    <p-column field="institute" header="Institute (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+    
+    <p-column field="city" header="City (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+    
+    <p-column field="country" header="Country (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
+    
+</p-dataTable>

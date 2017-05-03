@@ -1,0 +1,143 @@
+<div class="card" *ngIf="author">
+  <div class="card-header">
+    Participant's Application
+  </div>
+
+  <div class="card-block">
+    <form #userForm="ngForm">
+      <div class="form-horizontal">
+        <h4>Author/Presenter Information:</h4>
+        <hr>
+        <div class="form-group">
+          <label class="control-label col-md-3">First Name</label>
+          <div class="col-md-9">
+            <input class="form-control" readonly #firstNameElement #firstNameControl="ngModel" type="text" placeholder="First Name" [(ngModel)]="author.firstName"
+              name="firstName" maxlength="30" required>
+            <span [hidden]="firstNameControl.pristine || !firstNameControl.errors?.required" class="text-danger">First Name is required!</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Last Name</label>
+          <div class="col-md-9">
+            <input class="form-control" readonly #lastNameElement #lastNameControl="ngModel" type="text" placeholder="Last Name" [(ngModel)]="author.lastName"
+              name="lastName" maxlength="30" required>
+            <span [hidden]="lastNameControl.pristine || !lastNameControl.errors?.required" class="text-danger">Last Name is required!</span>
+
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Institute/University Name</label>
+          <div class="col-md-9">
+            <input class="form-control" readonly #instituteElement #instituteControl="ngModel" type="text" placeholder="Institute Name"
+              [(ngModel)]="author.institute" name="institute" maxlength="50" required>
+            <span [hidden]="instituteControl.pristine || !instituteControl.errors?.required" class="text-danger">Institute Name is required!</span>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-3">City</label>
+          <div class="col-md-9">
+            <input class="form-control" readonly #cityElement #cityControl="ngModel" type="text" placeholder="City" [(ngModel)]="author.city"
+              name="city" maxlength="50" required>
+            <span [hidden]="cityControl.pristine || !cityControl.errors?.required" class="text-danger">City is required!</span>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Country</label>
+          <div class="col-md-9">
+            <input class="form-control" readonly #countryElement #countryControl="ngModel" type="text" placeholder="Country" [(ngModel)]="author.country"
+              name="country" maxlength="50" required>
+            <span [hidden]="countryControl.pristine || !countryControl.errors?.required" class="text-danger">Country selection is required!</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Email</label>
+          <div class="col-md-9">
+            <input class="form-control" readonly #emailElement #emailControl="ngModel" type="text" placeholder="Email" [(ngModel)]="author.email"
+              name="email" maxlength="60" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+            <span [hidden]="emailControl.pristine || !emailControl.errors?.required" class="text-danger">Email is required!</span>
+            <span [hidden]="emailControl.pristine || !emailControl.errors?.pattern" class="text-danger">That is not a valid email!</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+
+            <hr>
+            <h4>Additional Author Information:</h4>
+            <hr>
+            <table id="additionalList" class="table table-hover table-striped table-condensed">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th class="hidden">University</th>
+                  <th class="hidden">City</th>
+                  <th class="hidden">Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let auth of author.otherAuthors">
+                  <td>{{auth.firstName}}</td>
+                  <td>{{auth.lastName}}</td>
+                  <td>{{auth.email}}</td>
+                  <td>{{auth.institute}}</td>
+                  <td>{{auth.city}}</td>
+                  <td>{{auth.country}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+        <hr>
+        <h4>Presentation Information:</h4>
+        <hr>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Title of Study</label>
+          <div class="col-md-9">
+            <input class="form-control" readonly #titleOfStudyElement #titleOfStudyControl="ngModel" type="text" placeholder="Title Of Study"
+              [(ngModel)]="author.titleOfStudy" name="titleOfStudy" maxlength="100" required>
+            <span [hidden]="titleOfStudyControl.pristine || !titleOfStudyControl.errors?.required" class="text-danger">Title Of Study is required!</span>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Keywords of Study</label>
+          <div class="col-md-9">
+            <input class="form-control" readonly #keywordsElement #keywordsControl="ngModel" type="text" placeholder="Keywords" [(ngModel)]="author.keywords"
+              name="keywords" maxlength="100" required>
+            <span [hidden]="keywordsControl.pristine || !keywordsControl.errors?.required" class="text-danger">Keywords is required!</span>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Download Abstract</label>
+          <!--<button class="btn btn-primary" (click)="fileDownload()">Download Abstract</button>-->
+          <a href="{{link}}">Download</a>
+        </div>
+        
+        <div class="form-group">
+          <button class="btn btn-primary" *ngIf="!author.approved" (click)="approve()">Approve Participation</button>
+        </div>
+
+        <div *ngIf="author.approved" class="alert alert-info" role="alert" style="margin-top:15px;">
+          Already approved participant.
+        </div>
+
+        <hr>
+        <!--<button class="btn btn-primary float-right" [disabled]="!userForm.form.valid" (click)="save()">Approve</button>-->
+
+      </div>
+    </form>
+  </div>
+</div>
