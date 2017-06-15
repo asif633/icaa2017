@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlenaryService } from '../shared/models/plenary.service';
 import { Plenary } from '../shared/models/plenary.model';
 import { Observable } from 'rxjs/Observable';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-keynotespeakers',
@@ -10,12 +11,16 @@ import { Observable } from 'rxjs/Observable';
 })
 export class KeynotespeakersComponent implements OnInit {
 
-  constructor(private plServ: PlenaryService) { }
+  constructor(private plServ: PlenaryService, private actRoute: ActivatedRoute) { }
 
   plenaries: Observable<Plenary[]>;
 
   ngOnInit() {
-   this.plenaries = this.plServ.getPlenarys(); 
+  // this.actRoute.data
+  //   .subscribe((data: { plenary  : Observable<Plenary[]> }) => {
+            
+  //   });
+    this.plenaries = this.plServ.getPlenarys();
  }
 
 }

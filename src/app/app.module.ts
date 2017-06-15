@@ -44,6 +44,10 @@ import { PlenaryService } from './shared/models/plenary.service';
 import { InvitedService } from './shared/models/invited.services';
 import { LocalComService } from './shared/models/localcom.service';
 import { IntComService } from './shared/models/intcom.service';
+import { IntComResolver } from './shared/models/intcom.resolver';
+import { LocalComResolver } from './shared/models/localcom.resolver';
+import { PlenarysResolver } from './shared/models/plenary.resolver';
+import { InvitedResolver } from './shared/models/invited.resolver';
 
 export const fireConfig = {
   apiKey: "AIzaSyBruRP2pFrk0dfCE3Su0irHtITdQgXimwk",
@@ -100,7 +104,18 @@ const myFirebaseAuthConfig = {
     }),
     routes,
   ],
-  providers: [AuthorService, LoginService, AuthGuard, PlenaryService, InvitedService, LocalComService, IntComService],
+  providers: [AuthorService, 
+              LoginService, 
+              AuthGuard, 
+              PlenaryService, 
+              InvitedService, 
+              LocalComService, 
+              IntComService,
+              IntComResolver,
+              LocalComResolver,
+              PlenarysResolver,
+              InvitedResolver,
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

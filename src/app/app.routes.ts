@@ -22,6 +22,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { RegistrationsuccessComponent } from './registrationsuccess/registrationsuccess.component';
 import { TripComponent } from './trip/trip.component';
 import { InvitedspeakersComponent } from './invitedspeakers/invitedspeakers.component';
+import { LocalComResolver } from './shared/models/localcom.resolver';
+import { IntComResolver } from './shared/models/intcom.resolver';
+import { PlenarysResolver } from './shared/models/plenary.resolver';
 
 const appRoutes: Routes = [
     {
@@ -29,9 +32,14 @@ const appRoutes: Routes = [
             {
                 path: '', component: HomeComponent, children: [
                     { path: '', component: FrontpageComponent },
-                    { path: 'committiees', component: CommittieesComponent },
+                    { path: 'committiees', component: CommittieesComponent, resolve: {
+                                              locmems: LocalComResolver,
+                                              //intmems: IntComResolver
+                                            } },
                     { path: 'topics', component: TopicsComponent },
-                    { path: 'plenaryspeakers', component: KeynotespeakersComponent },
+                    { path: 'plenaryspeakers', component: KeynotespeakersComponent, resolve:{
+                                                //plenary: PlenarysResolver
+                    } },
                     { path: 'invitedspeakers', component: InvitedspeakersComponent },
                     { path: 'journals', component: JournalsComponent },
                     { path: 'registration', component: RegistrationComponent },

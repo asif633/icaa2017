@@ -1,8 +1,8 @@
 <h3>PLENARY SPEAKERS</h3>
 
-<div class="row mt-3">
+<div class="row mt-3" *ngIf="plenaries">
   <div class="col-lg-4 col-md-6 col-sm-6 mb-4" *ngFor="let plenary of plenaries | async">
-    <div class="card">
+    <div class="card" *ngIf="plenary.photoUrl">
       <img class="card-img-top" src="{{plenary.photoUrl}}">
       <div class="card-block">
         <h5 class="card-title">{{plenary.name}}</h5>      
