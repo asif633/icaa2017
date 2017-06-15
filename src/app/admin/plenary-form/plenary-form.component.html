@@ -1,0 +1,39 @@
+<div class="card" *ngIf="plenary">
+  <h3 class="card-header">Plenary Speaker Form</h3>
+  <div class="card-block">
+    <form>
+      <fieldset>
+        <div class="form-group">
+          <label for="name">Plenary Speaker Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter Plenary Name" [(ngModel)]="plenary.name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="location">Plenary Plenary Location</label>
+          <input type="text" class="form-control" id="location" placeholder="Enter Plenary Location" [(ngModel)]="plenary.location"
+            name="location">
+        </div>
+        <div class="form-group">
+          <label for="id">Plenary Speaker Flag Code</label>
+          <input type="text" class="form-control" id="description" placeholder="Enter Plenary Flag Code" [(ngModel)]="plenary.flag"
+            name="flag">
+        </div>
+        <div class="form-group" *ngIf="plenary.photoUrl">
+          <img src="{{plenary.photoUrl}}"> 
+        </div>
+        <div class="form-group">
+          <label>Select Image (After submit only change)</label>
+          <input required accept=".jpg" id="file" name="file" type="file">
+        </div>
+        <div *ngIf="addPlenary==false">
+          <button type="submit" class="btn btn-primary" (click)="updatePlenary()">Update</button>
+          <button type="submit" class="btn btn-danger" (click)="deletePlenary()">Delete</button>
+        </div>
+        <div *ngIf="addPlenary==true">
+          <button type="submit" class="btn btn-primary" (click)="addNew()">Add</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<p *ngIf="msg" class="text-success">{{msg}}</p>
+<p *ngIf="msg1" class="text-danger">{{msg1}}</p>

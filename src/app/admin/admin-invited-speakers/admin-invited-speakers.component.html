@@ -1,0 +1,10 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-6">
+      <app-admin-invited-speaker-table (selectPlenary)="getSelectedPlenary($event)" (add)="addOrUpdate($event)"></app-admin-invited-speaker-table>
+    </div>
+    <div class="col-md-6">
+      <app-admin-invited-speaker-form [plenary]="selectedPlenary" [addPlenary]="addBool"></app-admin-invited-speaker-form>
+    </div>
+  </div>
+</div>

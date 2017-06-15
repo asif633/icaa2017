@@ -1,0 +1,32 @@
+<div class="card" *ngIf="plenary">
+  <h3 class="card-header">Invited Speaker Form</h3>
+  <div class="card-block">
+    <form>
+      <fieldset>
+        <div class="form-group">
+          <label for="name">Invited Speaker Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter Invited Name" [(ngModel)]="plenary.name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="location">Invited Speaker Location</label>
+          <input type="text" class="form-control" id="location" placeholder="Enter Invited Location" [(ngModel)]="plenary.location"
+            name="location">
+        </div>
+        <div class="form-group">
+          <label for="id">Invited Speaker Flag Code</label>
+          <input type="text" class="form-control" id="description" placeholder="Enter Invited Flag Code" [(ngModel)]="plenary.flag"
+            name="flag">
+        </div>
+        <div *ngIf="addPlenary==false">
+          <button type="submit" class="btn btn-primary" (click)="updateInvited()">Update</button>
+          <button type="submit" class="btn btn-danger" (click)="deleteInvited()">Delete</button>
+        </div>
+        <div *ngIf="addPlenary==true">
+          <button type="submit" class="btn btn-primary" (click)="addNew()">Add</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<p *ngIf="msg" class="text-success">{{msg}}</p>
+<p *ngIf="msg1" class="text-danger">{{msg1}}</p>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { InvitedService } from '../shared/models/invited.services';
+import { Observable } from 'rxjs/Observable';
+import { Plenary } from '../shared/models/plenary.model';
 
 @Component({
   selector: 'app-invitedspeakers',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvitedspeakersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private invServ: InvitedService) { }
 
   ngOnInit() {
+    this.invitedSpeakers = this.invServ.getPlenarys();
   }
+
+  invitedSpeakers: Observable<Plenary[]>;
 
 }

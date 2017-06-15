@@ -1,0 +1,32 @@
+<div class="container mt-5 mb-5">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#local">Local Committee</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#int">International Committee</a>
+    </li>
+  </ul>
+  <div id="myTabContent" class="tab-content mt-3">
+    <div class="tab-pane fade in" id="local" aria-expanded="false">
+      <div class="row">
+        <div class="col-md-6">
+          <app-local-committee-table (selectPlenaryL)="getSelectedPlenaryL($event)" (addL)="addOrUpdateL($event)"></app-local-committee-table>
+        </div>
+        <div class="col-md-6">
+          <app-local-committee-form [plenaryL]="selectedPlenaryL" [addPlenaryL]="addBoolL"></app-local-committee-form>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade in" id="int" aria-expanded="false">
+      <div class="row">
+        <div class="col-md-6">
+          <app-int-committee-table (selectPlenary)="getSelectedPlenary($event)" (add)="addOrUpdate($event)"></app-int-committee-table>
+        </div>
+        <div class="col-md-6">
+          <app-int-committee-form [plenary]="selectedPlenary" [addPlenary]="addBool"></app-int-committee-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

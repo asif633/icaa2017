@@ -1,93 +1,12 @@
 <h3>PLENARY SPEAKERS</h3>
 
 <div class="row mt-3">
-  <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+  <div class="col-lg-4 col-md-6 col-sm-6 mb-4" *ngFor="let plenary of plenaries | async">
     <div class="card">
-      <img class="card-img-top" src="../assets/images/V_Berinde.jpg">
+      <img class="card-img-top" src="{{plenary.photoUrl}}">
       <div class="card-block">
-        <h5 class="card-title">Prof. V. Berinde</h5>      
-        <p class="card-text">Baia Mare, Romania <span class="flag-icon flag-icon-ro flag-icon-squared"></span></p>  
-      </div>
-    </div>
-  </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-    <div class="card">
-      <img class="card-img-top" src="../assets/images/JP_Crouzeix.jpg">
-      <div class="card-block">
-        <h5 class="card-title">Prof. J.-P. Crouzeix</h5>      
-        <p class="card-text">Clermont-Ferrand, France <span class="flag-icon flag-icon-fr flag-icon-squared"></span></p>  
-      </div>
-    </div>
-  </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-    <div class="card">
-      <img class="card-img-top" src="../assets/images/Z_Nashed.jpg">
-      <div class="card-block">
-        <h5 class="card-title">Prof. Z. Nashed</h5>      
-        <p class="card-text"> Orlando, USA <span class="flag-icon flag-icon-us flag-icon-squared"></span></p>  
-      </div>
-    </div>
-  </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-    <div class="card">
-      <img class="card-img-top" src="../assets/images/G_Kassay.jpg">
-      <div class="card-block">
-        <h5 class="card-title">Prof. G. Kassay</h5>      
-        <p class="card-text"> Cluj, Romania <span class="flag-icon flag-icon-ro flag-icon-squared"></span></p>  
-      </div>
-    </div>
-  </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-    <div class="card">
-      <img class="card-img-top" src="../assets/images/F_Potra.jpg">
-      <div class="card-block">
-        <h5 class="card-title">Prof. F. Potra</h5>      
-        <p class="card-text"> Maryland, USA <span class="flag-icon flag-icon-us flag-icon-squared"></span></p>  
-      </div>
-    </div>
-  </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-    <div class="card">
-      <img class="card-img-top" src="../assets/images/AH_Siddiqi.jpg">
-      <div class="card-block">
-        <h5 class="card-title">Prof. A.H. Siddiqi</h5>      
-        <p class="card-text"> Noida, India <span class="flag-icon flag-icon-in flag-icon-squared"></span></p>  
-      </div>
-    </div>
-  </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-    <div class="card">
-      <img class="card-img-top" class="card-img-top" src="../assets/images/SD_Tripathi.jpg">
-      <div class="card-block">
-        <h5 class="card-title">Prof. S. Deo Tripathi</h5>      
-        <p class="card-text"> Allahabad, India <span class="flag-icon flag-icon-in flag-icon-squared"></span></p>  
-      </div>
-    </div>
-  </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-    <div class="card">
-      <img class="card-img-top" class="card-img-top" src="../assets/images/W_Takahashi.jpg">
-      <div class="card-block">
-        <h5 class="card-title">Prof. W. Takahashi</h5>      
-        <p class="card-text"> Tokyo, Japan <span class="flag-icon flag-icon-jp flag-icon-squared"></span></p>  
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-    <div class="card">
-      <img class="card-img-top" class="card-img-top" src="../assets/images/HK-Xu.jpg">
-      <div class="card-block">
-        <h5 class="card-title">Prof. H.K. Xu</h5>      
-        <p class="card-text"> Kaohsiung, Taiwan <span class="flag-icon flag-icon-tw flag-icon-squared"></span></p>  
-      </div>
-    </div>
-  </div>
-    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-    <div class="card">
-      <img class="card-img-top" class="card-img-top" src="../assets/images/J_Zafarani.jpg">
-      <div class="card-block">
-        <h5 class="card-title">Prof. J. Zafarani</h5>      
-        <p class="card-text"> Isfahan, Iran <span class="flag-icon flag-icon-ir flag-icon-squared"></span></p>  
+        <h5 class="card-title">{{plenary.name}}</h5>      
+        <p class="card-text">{{plenary.location}} <span class="flag-icon flag-icon-{{plenary.flag}} flag-icon-squared"></span></p>  
       </div>
     </div>
   </div>

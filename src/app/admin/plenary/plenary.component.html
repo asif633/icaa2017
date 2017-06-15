@@ -1,0 +1,10 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-6">
+      <app-plenary-table (selectPlenary)="getSelectedPlenary($event)" (add)="addOrUpdate($event)"></app-plenary-table>
+    </div>
+    <div class="col-md-6">
+      <app-plenary-form [plenary]="selectedPlenary" [addPlenary]="addBool"></app-plenary-form>
+    </div>
+  </div>
+</div>

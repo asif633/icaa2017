@@ -1,0 +1,27 @@
+<div class="card" *ngIf="plenaryL">
+  <h3 class="card-header">Local Committe Form</h3>
+  <div class="card-block">
+    <form>
+      <fieldset>
+        <div class="form-group">
+          <label for="name">Local Committe Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter Name" [(ngModel)]="plenaryL.name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="designation">Local Committe Designation or other info</label>
+          <input type="text" class="form-control" id="location" placeholder="Enter Designation or other info" [(ngModel)]="plenaryL.designation"
+            name="designation">
+        </div>
+        <div *ngIf="addPlenaryL==false">
+          <button type="submit" class="btn btn-primary" (click)="updateInvited()">Update</button>
+          <button type="submit" class="btn btn-danger" (click)="deleteInvited()">Delete</button>
+        </div>
+        <div *ngIf="addPlenaryL==true">
+          <button type="submit" class="btn btn-primary" (click)="addNew()">Add</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<p *ngIf="msgL" class="text-success">{{msgL}}</p>
+<p *ngIf="msg1L" class="text-danger">{{msg1L}}</p>

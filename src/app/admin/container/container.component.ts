@@ -14,16 +14,5 @@ export class ContainerComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  logout(){
-    this.logServ.logout().then(
-      success => this.router.navigate(['/'])
-    );
-  }
-
-  getSelAuthor(event: Author){
-    this.auth = event;
-  }
-
-  auth: Author;
+  
 }

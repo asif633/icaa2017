@@ -48,7 +48,7 @@ const appRoutes: Routes = [
                     {path: 'registrationsuceess', component: RegistrationsuccessComponent}
                 ]
             },
-            { path: 'manageusers', component: ContainerComponent, canActivate: [AuthGuard] }
+            { path: 'manageusers', loadChildren: './admin/admin/admin.module#AdminModule', canLoad: [AuthGuard] }
         ]
     },
     { path: '**', component: NotfoundComponent }

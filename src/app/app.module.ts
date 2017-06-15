@@ -40,6 +40,11 @@ import { RegistrationsuccessComponent } from './registrationsuccess/registration
 import { TripComponent } from './trip/trip.component';
 import { InvitedspeakersComponent } from './invitedspeakers/invitedspeakers.component';
 
+import { PlenaryService } from './shared/models/plenary.service';
+import { InvitedService } from './shared/models/invited.services';
+import { LocalComService } from './shared/models/localcom.service';
+import { IntComService } from './shared/models/intcom.service';
+
 export const fireConfig = {
   apiKey: "AIzaSyBruRP2pFrk0dfCE3Su0irHtITdQgXimwk",
   authDomain: "cpm-app.firebaseapp.com",
@@ -77,19 +82,15 @@ const myFirebaseAuthConfig = {
     SlideshowComponent,
     FooterComponent,
     LoginComponent,
-    ControllistComponent,
-    TableComponent,
-    ContainerComponent,
     NotfoundComponent,
     RegistrationsuccessComponent,
     TripComponent,
-    InvitedspeakersComponent
+    InvitedspeakersComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routes,
     AngularFireModule.initializeApp(fireConfig, myFirebaseAuthConfig),
     DataTableModule,
     PaginatorModule,
@@ -97,8 +98,9 @@ const myFirebaseAuthConfig = {
       adClient: 'ca-pub-2748445173208518',
       adSlot: 9660629583
     }),
+    routes,
   ],
-  providers: [AuthorService, LoginService, AuthGuard],
+  providers: [AuthorService, LoginService, AuthGuard, PlenaryService, InvitedService, LocalComService, IntComService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
