@@ -2,10 +2,15 @@
 <div class="card">
   <!--<div class="card-header">INVITED SPEAKERS</div>-->
   <div class="card-block" *ngIf="invitedSpeakers">
-    <ol>
-      <li *ngFor="let speaker of invitedSpeakers | async">
-        {{speaker.name}} ({{speaker.location}}) <span class="flag-icon flag-icon-{{speaker.flag}} flag-icon-squared"></span>
-      </li>
-    </ol>
+    <div *ngFor="let speaker of invitedSpeakers | async | sortBy; let f = index">
+      <div *ngIf="speaker.name.includes('Prof.')">
+        {{f}}. {{speaker.name}} ({{speaker.location}}) <span class="flag-icon flag-icon-{{speaker.flag}} flag-icon-squared"></span>
+      </div>
+    </div>
+    <div *ngFor="let speaker of invitedSpeakers | async | sortBy">
+      <div *ngIf="speaker.name.includes('Dr.')">
+        42. {{speaker.name}} ({{speaker.location}}) <span class="flag-icon flag-icon-{{speaker.flag}} flag-icon-squared"></span>
+      </div>
+    </div>
   </div>
 </div>

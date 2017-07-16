@@ -48,6 +48,7 @@ import { IntComResolver } from './shared/models/intcom.resolver';
 import { LocalComResolver } from './shared/models/localcom.resolver';
 import { PlenarysResolver } from './shared/models/plenary.resolver';
 import { InvitedResolver } from './shared/models/invited.resolver';
+import { SortByPipe } from './shared/sortby.pipe';
 
 export const fireConfig = {
   apiKey: "AIzaSyBruRP2pFrk0dfCE3Su0irHtITdQgXimwk",
@@ -90,6 +91,7 @@ const myFirebaseAuthConfig = {
     RegistrationsuccessComponent,
     TripComponent,
     InvitedspeakersComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule,

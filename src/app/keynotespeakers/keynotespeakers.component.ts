@@ -16,10 +16,6 @@ export class KeynotespeakersComponent implements OnInit {
   plenaries: Observable<Plenary[]>;
 
   ngOnInit() {
-  // this.actRoute.data
-  //   .subscribe((data: { plenary  : Observable<Plenary[]> }) => {
-            
-  //   });
     this.plenaries = this.plServ.getPlenarys();
  }
 
